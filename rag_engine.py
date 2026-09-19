@@ -2,6 +2,11 @@ from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
+import streamlit as st
+
+@st.cache_resource
+def get_embedding_model():
+    return HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 
 def get_embedding_model():
     return HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
